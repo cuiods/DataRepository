@@ -24,6 +24,6 @@ public class ClientFilter extends CsvFilter {
 
     @Override
     String[] getHeaders() {
-        return new String[]{"client_id","birth_number","district_id","gender"};
+        return new String[]{"client_id","birth_number","district_id","gender","age", "ageType"};
     }
 }

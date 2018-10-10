@@ -16,7 +16,7 @@ public class OrderFilter extends CsvFilter {
         List<Rule> rules = new ArrayList<Rule>(6);
         rules.add(new IdRule());
         rules.add(new IdRule());
-        rules.add(new StringRule());
+        rules.add(new BankRule());
         rules.add(new NumberRule());
         rules.add(new NumberRule());
         rules.add(new KSymbolEnumRule());

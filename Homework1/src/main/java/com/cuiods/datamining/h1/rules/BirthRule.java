@@ -20,7 +20,10 @@ public class BirthRule extends Rule {
                 calendar.set(Integer.parseInt("19"+item.substring(0,2)),month,Integer.parseInt(item.substring(4)));
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                 String date = format.format(calendar.getTime());
-                return date + CsvFilter.SPLIT_TAG + isMale;
+                int age = 2000-calendar.get(Calendar.YEAR);
+                int ageType = age/10;
+                if (ageType > 6) ageType = 6;
+                return date + CsvFilter.SPLIT_TAG + isMale + CsvFilter.SPLIT_TAG + age + CsvFilter.SPLIT_TAG + ageType;
             }
         } catch (Exception e) {
             return null;

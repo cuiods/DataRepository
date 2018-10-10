@@ -22,7 +22,7 @@ public class TranFilter extends CsvFilter{
         rules.add(new NumberRule());
         rules.add(new StringRule());
         rules.add(new TranKSymbolRule());
-        rules.add(new StringRule());
+        rules.add(new BankRule());
         rules.add(new StringRule());
         return rules;
     }

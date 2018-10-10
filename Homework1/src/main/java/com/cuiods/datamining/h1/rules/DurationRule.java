@@ -5,7 +5,7 @@ public class DurationRule extends Rule {
     public String process(String item) {
         try {
             int num = Integer.parseInt(item);
-            if (num % 12 == 0) return item;
+            if (num % 12 == 0) return num/12+"";
             return null;
         } catch (Exception e) {
             return null;
