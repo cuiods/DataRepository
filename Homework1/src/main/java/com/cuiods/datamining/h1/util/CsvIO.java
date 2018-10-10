@@ -3,7 +3,9 @@ package com.cuiods.datamining.h1.util;
 import com.csvreader.CsvReader;
 import com.csvreader.CsvWriter;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 
 public class CsvIO {
@@ -26,11 +28,14 @@ public class CsvIO {
     }
 
     public static CsvWriter writeCsv(String filePath) {
-        URL pathUrl = CsvIO.class.getClassLoader().getResource(filePath);
-        String path = "";
-        if (pathUrl!=null) {
-            path = pathUrl.getPath();
+        File file = new File(filePath);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        return new CsvWriter(path);
+        return new CsvWriter(filePath);
     }
 }
