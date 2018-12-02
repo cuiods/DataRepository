@@ -19,10 +19,10 @@ public class TranFilter extends CsvFilter{
         rules.add(new TranDateRule());
         rules.add(new TranTypeRule());
         rules.add(new TranOperaRule());
-        rules.add(new NumberRule());
-        rules.add(new StringRule());
+        rules.add(new IdRule());
+        rules.add(new IdRule());
         rules.add(new TranKSymbolRule());
-        rules.add(new BankRule());
+        rules.add(new StringRule());
         rules.add(new StringRule());
         return rules;
     }
