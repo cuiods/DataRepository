@@ -16,7 +16,9 @@ def agnes(data, k):
     dist = update_distance(clusters)
     while len(clusters) > k:
         print(len(clusters))
-        (x, y) = find_min(dist)
+        min_index = find_min(dist)
+        x = min_index[0]
+        y = min_index[1]
         clusters[x] = np.vstack((clusters[x], clusters[y]))
         clusters.remove(y)
         dist = update_distance(clusters)
