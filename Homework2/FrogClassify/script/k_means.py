@@ -44,7 +44,7 @@ def distance(a, b):
 
 
 if __name__ == '__main__':
-    o_data = load_data.get_data()
+    o_data = load_data.get_data(18)
     (x, y) = o_data.shape
     data = o_data[:, 0: y - 4]
     (centers, group) = k_means(data, 4)

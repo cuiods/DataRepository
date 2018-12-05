@@ -51,6 +51,6 @@ if __name__ == '__main__':
     o_data = load_data.get_data()
     (x, y) = o_data.shape
     data = o_data[:, 0: y - 4]
-    (group, group_index) = dbscan(data, 0.5, 30)
+    (group, group_index) = dbscan(data, 0.2, 8)
     print(group_index)
     print(np.nonzero(group[:, 0] != -1)[0])
