@@ -4,20 +4,26 @@
 
 import load_data
 import numpy as np
+import agnes as ag
+import random
 import measure
 
 
 def k_means(data, k):
     # random centers
-    random = np.random.RandomState(0)
     (num, factor_num) = data.shape
+    has_list = []
     centers = np.zeros((k, factor_num))
-    for i in range(factor_num):
-        vec = data[:, i]
-        centers[:, i] = random.uniform(vec.min(), vec.max(), k)
+    counter = 0
+    while counter < k:
+        random_index = random.randint(0, num)
+        if random_index not in has_list:
+            has_list.append(random_index)
+            centers[counter,:] = data[random_index, :]
+            counter = counter + 1
 
     # k_means algorithm
-    group = np.zeros((num, 2))
+    group = np.zeros((num, 1))
     convergence = False
     while not convergence:
         convergence = True
@@ -31,7 +37,7 @@ def k_means(data, k):
                     min_index = j
             if group[i,0] != min_index:
                 convergence = False
-            group[i,:] = [min_index, min_distance]
+            group[i,:] = [min_index]
         for i in range(k):
             current_group = data[np.nonzero(group[:,0]==i)[0]]
             centers[i, :] = np.mean(current_group, axis=0)
@@ -47,5 +53,6 @@ if __name__ == '__main__':
     o_data = load_data.get_data(18)
     (x, y) = o_data.shape
     data = o_data[:, 0: y - 4]
-    (centers, group) = k_means(data, 4)
-    print(measure.measure_k_group(group, o_data[:, y - 4:y - 3], 4, 4))
+    (centers, group) = k_means(data, 8)
+    result = ag.outer_agens(data, group, 8, 4)
+    print(measure.measure_k_group(result, o_data[:, y - 4:y - 3], 4, 4))

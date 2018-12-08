@@ -1,6 +1,7 @@
 import load_data
 import numpy as np
 import measure
+import agnes as ag
 from scipy.spatial import KDTree
 from random import choice
 
@@ -51,6 +52,10 @@ if __name__ == '__main__':
     o_data = load_data.get_data()
     (x, y) = o_data.shape
     data = o_data[:, 0: y - 4]
-    (group, group_index) = dbscan(data, 0.2, 8)
-    print(group_index)
-    print(np.nonzero(group[:, 0] != -1)[0])
+    (group, group_index) = dbscan(data, 0.5, 10)
+    true_result = o_data[:, y - 4:y - 3]
+    true_result = true_result[np.nonzero(group[:,0] < 0)[0]]
+    group = group[np.nonzero(group[:,0] < 0)[0]]
+    data = data[np.nonzero(group[:,0] < 0)[0]]
+    result = ag.outer_agens(data, group, group_index, 4)
+    print(measure.measure_k_group(result, true_result, 4, 4))
