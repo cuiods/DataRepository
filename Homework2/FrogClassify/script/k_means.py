@@ -25,7 +25,12 @@ def k_means(data, k):
     # k_means algorithm
     group = np.zeros((num, 1))
     convergence = False
+    counter = 0
     while not convergence:
+        counter = counter + 1
+        print(counter)
+        if counter > 10:
+            break
         convergence = True
         for i in range(num):
             min_distance = np.inf
@@ -46,7 +51,13 @@ def k_means(data, k):
 
 
 def distance(a, b):
-    return np.sqrt(np.power(np.sum(a - b), 2))
+    x = a.shape[0]
+    a = a.reshape((x, 1))
+    b = b.reshape((x, 1))
+    num = float(a.T * b)
+    denom = np.linalg.norm(a) * np.linalg.norm(b)
+    cos = num / denom
+    return 0.5 + 0.5 * cos
 
 
 if __name__ == '__main__':
