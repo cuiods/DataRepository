@@ -7,7 +7,7 @@ import math
 
 def agnes_pre(data, k):
     num = data.shape[0]
-    group = np.arange(0,num,1).reshape(num, 1)
+    group = np.arange(0,num,1).reshape((num, 1))
     indexed_data = np.hstack((group, data))
     clusters = []
     for i in range(num):
@@ -17,7 +17,7 @@ def agnes_pre(data, k):
 
 def result_to_cluster(data, group, group_num):
     num = data.shape[0]
-    data_index = np.arange(0, num, 1).reshape(num, 1)
+    data_index = np.arange(0, num, 1).reshape((num, 1))
     indexed_data = np.hstack((data_index, data))
     clusters = []
     for i in range(group_num):
@@ -34,18 +34,20 @@ def outer_agens(data, group, group_num, k):
 
 
 def agens(clusters, k, num):
-    result = np.arange(num).reshape(num, 1)
+    result = np.arange(num).reshape((num, 1))
     dist = update_distance(clusters)
     while len(clusters) > k:
         min_index = find_min(dist)
         x = min_index[0]
         y = min_index[1]
+        print("before x",clusters[x])
+        print("before y",clusters[y])
         clusters[x] = np.vstack((clusters[x], clusters[y]))
+        print("after x",clusters[x])
         del clusters[y]
         dist = update_distance(clusters)
     for i in range(k):
         group_array = clusters[i]
-        print(group_array.shape)
         for j in range(group_array.shape[0]):
             o_index = group_array.item((j,0))
             result[int(o_index),:] = [i]
@@ -53,6 +55,10 @@ def agens(clusters, k, num):
 
 
 def distance(a, b):
+    x = a.shape[0]
+    a = a.reshape((x,1))
+    y = b.shape[0]
+    b = b.reshape((y, 1))
     return np.sqrt(np.power(np.sum(a[:, 1:] - b[:, 1:]), 2))
 
 
