@@ -7,6 +7,7 @@ import numpy as np
 import agnes as ag
 import random
 import measure
+import time
 
 
 def k_means(data, k):
@@ -64,6 +65,10 @@ if __name__ == '__main__':
     o_data = load_data.get_data(18)
     (x, y) = o_data.shape
     data = o_data[:, 0: y - 4]
-    (centers, group) = k_means(data, 8)
-    result = ag.outer_agens(data, group, 8, 4)
-    print(measure.measure_k_group(result, o_data[:, y - 4:y - 3], 4, 4))
+    k_value = 9
+    start = time.clock()
+    (centers, group) = k_means(data, k_value)
+    result = ag.outer_agens(data, group, k_value, 4)
+    end = time.clock()
+    print("(F-value, Purity)", measure.measure_k_group(result, o_data[:, y - 4:y - 3], 4, 4))
+    print("Time:", start-end)
