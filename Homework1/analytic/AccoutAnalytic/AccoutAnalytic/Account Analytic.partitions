@@ -1,0 +1,65 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="ddad49a7-84b8-44c1-87e2-05264973ff3b" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Account Analytic</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>a1 User Number</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="fe2cf5cb-dd37-4c74-9ddf-7d2b414d099c">
+          <ID>a1 User Number</ID>
+          <Name>a1 User Number</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="4f044f82-7eea-4230-a52f-579462e780ce">
+            <DataSourceViewID>Account Analytic</DataSourceViewID>
+            <TableID>dbo_a1_user_number</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>a2 Amount Value</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="20479be0-7f86-4612-a06a-272ccfeff1ed">
+          <ID>a2 Amount Value</ID>
+          <Name>a2 Amount Value</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="4f8233e1-29f3-4d87-998f-283916a4637a">
+            <DataSourceViewID>Account Analytic</DataSourceViewID>
+            <TableID>dbo_a2_amount_value</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>a3 Loan Analytic</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="099fee3e-0439-4691-875d-f4dd0d961b27">
+          <ID>a3 Loan Analytic</ID>
+          <Name>a3 Loan Analytic</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="a0d327d2-cbd5-4c8f-84be-d0055112d760">
+            <DataSourceViewID>Account Analytic</DataSourceViewID>
+            <TableID>dbo_a3_loan_analytic</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

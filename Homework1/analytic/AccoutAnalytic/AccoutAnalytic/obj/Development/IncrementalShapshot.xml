@@ -1,0 +1,131 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>AccoutAnalytic</Database>
+    <Server>localhost</Server>
+    <ConnectionString>DataSource=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>Default</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>IxuQ8tyWTD2a/NE7t6cXnw==2018/10/11 10:54:142018/10/11 10:54:08</TimeStamp>
+        <ID>
+          <String>Account Analytic</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>9OmSl2vDYHfNPs0U+ZphFw==2018/10/14 14:42:532018/10/14 14:35:36</TimeStamp>
+        <ID>
+          <String>Account Analytic</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>jgIQDM4WjlBjgTzfecnsIw==2018/10/14 14:44:202018/10/14 14:43:58</TimeStamp>
+        <ID>
+          <String>Gender Dimesion</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>EsI6heoUpEtB9zehrrZWAg==2018/10/14 14:44:462018/10/14 14:43:58</TimeStamp>
+        <ID>
+          <String>Card Dimension</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>M0X/OzHTcqAmYYl2P1yifw==2018/10/14 14:44:462018/10/14 14:43:58</TimeStamp>
+        <ID>
+          <String>Year Dimension</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>qIHiOSnGalhP9yCvyQKZyw==2018/10/14 14:44:462018/10/14 14:43:58</TimeStamp>
+        <ID>
+          <String>Age Dimesion</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>kravnEQe+alpRyKUwZbX8g==2018/10/14 14:45:052018/10/14 14:43:58</TimeStamp>
+        <ID>
+          <String>Region Dimension</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>+LqK5+1lwF7XjPHYNNYwmQ==2018/10/14 14:45:152018/10/14 14:43:58</TimeStamp>
+        <ID>
+          <String>Operation Dimension</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>9lzPJz6XB9SAHZhDRBCDZA==2018/10/14 14:45:272018/10/14 14:43:58</TimeStamp>
+        <ID>
+          <String>Order Amount Dimension</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>giDrlhVPexCVa+NJ5PVFKQ==2018/10/14 14:46:132018/10/14 14:43:58</TimeStamp>
+        <ID>
+          <String>Trans Amount Dimension</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>9kQsbwAedzaebZ7boEhuCg==2018/10/14 14:46:132018/10/14 14:43:58</TimeStamp>
+        <ID>
+          <String>Trans Balance Dimension</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>MnkPrJ3eUX4Bb6vhZtU+Lg==2018/10/14 14:46:132018/10/14 14:43:58</TimeStamp>
+        <ID>
+          <String>Trank Dimension</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>T+ouRuDBJcQBzbNSYTYAAA==2018/10/14 14:46:132018/10/14 14:43:58</TimeStamp>
+        <ID>
+          <String>Orderk Dimension</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>BnaVeYDI2glGYK+1GLCrdQ==2018/10/14 14:46:132018/10/14 14:43:58BsvOcobxh0Sq+upBhFExHw==2018/10/14 14:43:582018/10/14 14:43:58</TimeStamp>
+        <ID>
+          <String>Account Analytic</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>x2tHw6X2q60z/34WCbJshw==2018/10/11 10:50:012018/10/11 10:50:01</TimeStamp>
+      <ID>
+        <String>AccoutAnalytic</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2018-10-14T06:46:46Z</LastDeployed>
+</DeploymentSnapshot>

@@ -1,0 +1,338 @@
+﻿<Infos>
+  <Item name="Year Dimension.dim">
+    <Time>636751250867171358</Time>
+    <Hash length="16">
+      <b>51</b>
+      <b>69</b>
+      <b>255</b>
+      <b>59</b>
+      <b>49</b>
+      <b>211</b>
+      <b>114</b>
+      <b>160</b>
+      <b>38</b>
+      <b>97</b>
+      <b>137</b>
+      <b>118</b>
+      <b>63</b>
+      <b>92</b>
+      <b>162</b>
+      <b>127</b>
+    </Hash>
+  </Item>
+  <Item name="Order Amount Dimension.dim">
+    <Time>636751251278577958</Time>
+    <Hash length="16">
+      <b>246</b>
+      <b>92</b>
+      <b>207</b>
+      <b>39</b>
+      <b>62</b>
+      <b>151</b>
+      <b>7</b>
+      <b>212</b>
+      <b>128</b>
+      <b>29</b>
+      <b>152</b>
+      <b>67</b>
+      <b>68</b>
+      <b>16</b>
+      <b>131</b>
+      <b>100</b>
+    </Hash>
+  </Item>
+  <Item name="Region Dimension.dim">
+    <Time>636751251053207254</Time>
+    <Hash length="16">
+      <b>146</b>
+      <b>182</b>
+      <b>175</b>
+      <b>156</b>
+      <b>68</b>
+      <b>30</b>
+      <b>249</b>
+      <b>169</b>
+      <b>105</b>
+      <b>71</b>
+      <b>34</b>
+      <b>148</b>
+      <b>193</b>
+      <b>150</b>
+      <b>215</b>
+      <b>242</b>
+    </Hash>
+  </Item>
+  <Item name="Trank Dimension.dim">
+    <Time>636751251738682344</Time>
+    <Hash length="16">
+      <b>50</b>
+      <b>121</b>
+      <b>15</b>
+      <b>172</b>
+      <b>157</b>
+      <b>222</b>
+      <b>81</b>
+      <b>126</b>
+      <b>1</b>
+      <b>111</b>
+      <b>171</b>
+      <b>225</b>
+      <b>102</b>
+      <b>213</b>
+      <b>62</b>
+      <b>46</b>
+    </Hash>
+  </Item>
+  <Item name="AccoutAnalytic.database">
+    <Time>636748518014913380</Time>
+    <Hash length="16">
+      <b>199</b>
+      <b>107</b>
+      <b>71</b>
+      <b>195</b>
+      <b>165</b>
+      <b>246</b>
+      <b>171</b>
+      <b>173</b>
+      <b>51</b>
+      <b>255</b>
+      <b>126</b>
+      <b>22</b>
+      <b>9</b>
+      <b>178</b>
+      <b>108</b>
+      <b>135</b>
+    </Hash>
+  </Item>
+  <Item name="Gender Dimesion.dim">
+    <Time>636751250607503054</Time>
+    <Hash length="16">
+      <b>142</b>
+      <b>2</b>
+      <b>16</b>
+      <b>12</b>
+      <b>206</b>
+      <b>22</b>
+      <b>142</b>
+      <b>80</b>
+      <b>99</b>
+      <b>129</b>
+      <b>60</b>
+      <b>223</b>
+      <b>121</b>
+      <b>201</b>
+      <b>236</b>
+      <b>35</b>
+    </Hash>
+  </Item>
+  <Item name="Trans Amount Dimension.dim">
+    <Time>636751251738542737</Time>
+    <Hash length="16">
+      <b>130</b>
+      <b>32</b>
+      <b>235</b>
+      <b>150</b>
+      <b>21</b>
+      <b>79</b>
+      <b>123</b>
+      <b>16</b>
+      <b>149</b>
+      <b>107</b>
+      <b>227</b>
+      <b>73</b>
+      <b>228</b>
+      <b>245</b>
+      <b>69</b>
+      <b>41</b>
+    </Hash>
+  </Item>
+  <Item name="Orderk Dimension.dim">
+    <Time>636751251737774777</Time>
+    <Hash length="16">
+      <b>79</b>
+      <b>234</b>
+      <b>46</b>
+      <b>70</b>
+      <b>224</b>
+      <b>193</b>
+      <b>37</b>
+      <b>196</b>
+      <b>1</b>
+      <b>205</b>
+      <b>179</b>
+      <b>82</b>
+      <b>97</b>
+      <b>54</b>
+      <b>0</b>
+      <b>0</b>
+    </Hash>
+  </Item>
+  <Item name="Account Analytic.partitions">
+    <Time>636751250386653539</Time>
+    <Hash length="16">
+      <b>6</b>
+      <b>203</b>
+      <b>206</b>
+      <b>114</b>
+      <b>134</b>
+      <b>241</b>
+      <b>135</b>
+      <b>68</b>
+      <b>170</b>
+      <b>250</b>
+      <b>234</b>
+      <b>65</b>
+      <b>132</b>
+      <b>81</b>
+      <b>49</b>
+      <b>31</b>
+    </Hash>
+  </Item>
+  <Item name="Age Dimesion.dim">
+    <Time>636751250866513112</Time>
+    <Hash length="16">
+      <b>168</b>
+      <b>129</b>
+      <b>226</b>
+      <b>57</b>
+      <b>41</b>
+      <b>198</b>
+      <b>106</b>
+      <b>88</b>
+      <b>79</b>
+      <b>247</b>
+      <b>32</b>
+      <b>175</b>
+      <b>201</b>
+      <b>2</b>
+      <b>153</b>
+      <b>203</b>
+    </Hash>
+  </Item>
+  <Item name="Account Analytic.cube">
+    <Time>636751251738472908</Time>
+    <Hash length="16">
+      <b>6</b>
+      <b>118</b>
+      <b>149</b>
+      <b>121</b>
+      <b>128</b>
+      <b>200</b>
+      <b>218</b>
+      <b>9</b>
+      <b>70</b>
+      <b>96</b>
+      <b>175</b>
+      <b>181</b>
+      <b>24</b>
+      <b>176</b>
+      <b>171</b>
+      <b>117</b>
+    </Hash>
+  </Item>
+  <Item name="Trans Balance Dimension.dim">
+    <Time>636751251738612540</Time>
+    <Hash length="16">
+      <b>246</b>
+      <b>68</b>
+      <b>44</b>
+      <b>111</b>
+      <b>0</b>
+      <b>30</b>
+      <b>119</b>
+      <b>54</b>
+      <b>158</b>
+      <b>109</b>
+      <b>158</b>
+      <b>219</b>
+      <b>160</b>
+      <b>72</b>
+      <b>110</b>
+      <b>10</b>
+    </Hash>
+  </Item>
+  <Item name="Account Analytic.dsv">
+    <Time>636751249735199885</Time>
+    <Hash length="16">
+      <b>244</b>
+      <b>233</b>
+      <b>146</b>
+      <b>151</b>
+      <b>107</b>
+      <b>195</b>
+      <b>96</b>
+      <b>119</b>
+      <b>205</b>
+      <b>62</b>
+      <b>205</b>
+      <b>20</b>
+      <b>249</b>
+      <b>154</b>
+      <b>97</b>
+      <b>23</b>
+    </Hash>
+  </Item>
+  <Item name="Operation Dimension.dim">
+    <Time>636751251157855686</Time>
+    <Hash length="16">
+      <b>248</b>
+      <b>186</b>
+      <b>138</b>
+      <b>231</b>
+      <b>237</b>
+      <b>101</b>
+      <b>192</b>
+      <b>94</b>
+      <b>215</b>
+      <b>140</b>
+      <b>241</b>
+      <b>216</b>
+      <b>52</b>
+      <b>214</b>
+      <b>48</b>
+      <b>153</b>
+    </Hash>
+  </Item>
+  <Item name="Account Analytic.ds">
+    <Time>636748520546581234</Time>
+    <Hash length="16">
+      <b>35</b>
+      <b>27</b>
+      <b>144</b>
+      <b>242</b>
+      <b>220</b>
+      <b>150</b>
+      <b>76</b>
+      <b>61</b>
+      <b>154</b>
+      <b>252</b>
+      <b>209</b>
+      <b>59</b>
+      <b>183</b>
+      <b>167</b>
+      <b>23</b>
+      <b>159</b>
+    </Hash>
+  </Item>
+  <Item name="Card Dimension.dim">
+    <Time>636751250867101526</Time>
+    <Hash length="16">
+      <b>18</b>
+      <b>194</b>
+      <b>58</b>
+      <b>133</b>
+      <b>234</b>
+      <b>20</b>
+      <b>164</b>
+      <b>75</b>
+      <b>65</b>
+      <b>247</b>
+      <b>55</b>
+      <b>161</b>
+      <b>174</b>
+      <b>182</b>
+      <b>86</b>
+      <b>2</b>
+    </Hash>
+  </Item>
+</Infos>

@@ -1,0 +1,84 @@
+﻿<ConfigurationSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Database>
+    <DataSources>
+      <DataSource>
+        <ID>Account Analytic</ID>
+        <ConnectionString>Provider=SQLNCLI10.1;Data Source=localhost;Integrated Security=SSPI;Initial Catalog=AccountAnalytic</ConnectionString>
+        <ImpersonationInfo>
+          <ImpersonationMode>ImpersonateServiceAccount</ImpersonationMode>
+          <ImpersonationInfoSecurity>Unchanged</ImpersonationInfoSecurity>
+        </ImpersonationInfo>
+      </DataSource>
+    </DataSources>
+    <Dimensions>
+      <Dimension>
+        <ID>Gender Dimesion</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Card Dimension</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Year Dimension</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Age Dimesion</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Region Dimension</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Operation Dimension</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Order Amount Dimension</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Trans Amount Dimension</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Trans Balance Dimension</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Trank Dimension</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Orderk Dimension</ID>
+      </Dimension>
+    </Dimensions>
+    <Cubes>
+      <Cube>
+        <ID>Account Analytic</ID>
+        <MeasureGroups>
+          <MeasureGroup>
+            <ID>a1 User Number</ID>
+            <Partitions>
+              <Partition>
+                <ID>a1 User Number</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>a2 Amount Value</ID>
+            <Partitions>
+              <Partition>
+                <ID>a2 Amount Value</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+          <MeasureGroup>
+            <ID>a3 Loan Analytic</ID>
+            <Partitions>
+              <Partition>
+                <ID>a3 Loan Analytic</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+        </MeasureGroups>
+      </Cube>
+    </Cubes>
+    <DataSourceImpersonationInfo>
+      <ImpersonationMode>Default</ImpersonationMode>
+      <ImpersonationInfoSecurity>Unchanged</ImpersonationInfoSecurity>
+    </DataSourceImpersonationInfo>
+  </Database>
+</ConfigurationSettings>
