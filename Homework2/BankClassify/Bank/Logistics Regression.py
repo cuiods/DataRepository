@@ -14,14 +14,15 @@ for j in range(len(labels)):
         labels_format.append(1)
     else:
         labels_format.append(0)
-# train_set
+# train_set and test_set
 train_set = []
-for i in range(0, int(len(labels) * 0.75)):
-    train_set.append(i)
-# test_set
 test_set = []
-for i in range(int(len(labels) * 0.75), len(labels)):
-    test_set.append(i)
+for i in range(0, len(labels)):
+    base = 0
+    if i % 10 == (base + 2) % 10 or i % 10 == (base + 5) % 10 or i % 10 == (base + 7) % 10:
+        test_set.append(i)
+    else:
+        train_set.append(i)
 
 
 def sigmoid(inx):
@@ -29,33 +30,33 @@ def sigmoid(inx):
     return 1.0 / (1 + exp(-inx))
 
 
-def grad_ascent():
+def grad_ascent(step, times):
     data_matrix = mat(numeric_values[0:len(train_set)])
     label_matrix = mat(labels_format[0:len(train_set)]).transpose()
     m, n = shape(data_matrix)
-    alpha = 0.001
-    max_cycle = 5000
+    alpha = step
+    max_cycle = times
     weights = ones((n, 1))
     for k in range(max_cycle):
         h = sigmoid(data_matrix * weights)
         error = (label_matrix - h)
         weights = weights + alpha * data_matrix.transpose() * error
-    m, n = shape(weights)
-    print(weights)
+    # print(weights)
     return weights
 
 
-def classify():
-    weights = grad_ascent()
-    a = 0
-    b = 0
-    c = 0
-    d = 0
+def classify(step, times):
+    weights = grad_ascent(step, times)
+    a = 1
+    b = 1
+    c = 1
+    d = 1
     n = len(test_set)
     for i in test_set:
         cur = mat(numeric_values[i])
         res = sigmoid(cur * weights).__float__()
-        if res == 1:
+        # print(res)
+        if abs(res - 1) < 0.001:
             res = "\"yes\""
         else:
             res = "\"no\""
@@ -69,14 +70,34 @@ def classify():
         if label == "\"no\"" and res == "\"no\"":
             d += 1
         # print(res, " ", label)
-    print(len(train_set), " ", len(test_set))
-    print(a, " ", b, " ", c, " ", d, " ", a + b + c + d)
+    # print(a, " ", b, " ", c, " ", d, " ", a + b + c + d)
+    Precision = float(a - 1) / (a + c)
+    Recall = float(a - 1) / (a + b)
     a = float(a) / n
     b = float(b) / n
     c = float(c) / n
     d = float(d) / n
-    print(a, " ", b, " ", c, " ", d, " ", a + b + c + d)
-    print(a + d)
+    # print(a, " ", b, " ", c, " ", d, " ", a + b + c + d)
+    Accuracy = a + d
+    return Precision, Recall, Accuracy
 
 
-classify()
+p = {}
+r = {}
+a = {}
+for times in [500, 1000, 1500, 2000, 3000]:
+    p[times] = []
+    r[times] = []
+    a[times] = []
+    for step in [0.1, 0.05, 0.01, 0.005, 0.001, 0.0005]:
+        Precision, Recall, Accuracy = classify(step, times)
+        p[times].append(Precision)
+        r[times].append(Recall)
+        a[times].append(Accuracy)
+    print(times)
+    print(p[times])
+    print(r[times])
+    print(a[times])
+    print()
+
+

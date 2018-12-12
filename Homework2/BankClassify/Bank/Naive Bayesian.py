@@ -24,14 +24,15 @@ for j in range(len(numeric_attributes)):
         formalisation.append(max_value)
     else:
         formalisation.append(min_value)
-# train_set
+# train_set and test_set
 train_set = []
-for i in range(0, int(len(labels) * 0.75)):
-    train_set.append(i)
-# test_set
 test_set = []
-for i in range(int(len(labels) * 0.75), len(labels)):
-    test_set.append(i)
+for i in range(0, len(labels)):
+    base = 0
+    if i % 10 == (base + 2) % 10 or i % 10 == (base + 5) % 10 or i % 10 == (base + 7) % 10:
+        test_set.append(i)
+    else:
+        train_set.append(i)
 # number_label
 number_label = {}
 for cur in train_set:
@@ -73,14 +74,14 @@ def calculate_p_non_numeric_attribute(train_set):
         for value in P_non_numeric_attribute[yes][j].keys():
             P_non_numeric_attribute[yes][j][value] /= number_label[yes]
             P_non_numeric_attribute[no][j][value] /= number_label[no]
-            print(value, " ", P_non_numeric_attribute[yes][j][value])
-            print(value, " ", P_non_numeric_attribute[no][j][value])
-        print("******************")
+            # print(value, " ", P_non_numeric_attribute[yes][j][value])
+            # print(value, " ", P_non_numeric_attribute[no][j][value])
+        # print("******************")
     return P_non_numeric_attribute
 
 
 # P[yes][j][0-5]
-def calculate_p_numerical_attribute(train_set):
+def calculate_p_numerical_attribute(train_set, range_len):
     yes = "\"yes\""
     no = "\"no\""
     P_numeric_attribute = {yes: {}, no: {}}
@@ -88,24 +89,23 @@ def calculate_p_numerical_attribute(train_set):
         P_numeric_attribute[yes][j] = {}
         P_numeric_attribute[no][j] = {}
         for i in train_set:
-            value = int(numeric_values[i][j] / formalisation[j] / 0.05)
+            value = int(numeric_values[i][j] / formalisation[j] / range_len)
             if value not in P_numeric_attribute[yes][j].keys():
                 P_numeric_attribute[yes][j][value] = float(0)
             if value not in P_numeric_attribute[no][j].keys():
                 P_numeric_attribute[no][j][value] = float(0)
             P_numeric_attribute[labels[i]][j][value] += 1
     for j in range(len(numeric_attributes)):
-        print(j)
         for value in P_numeric_attribute[yes][j].keys():
             P_numeric_attribute[yes][j][value] /= number_label[yes]
             P_numeric_attribute[no][j][value] /= number_label[no]
-            print(value, " ", P_numeric_attribute[yes][j][value])
-            print(value, " ", P_numeric_attribute[no][j][value])
-        print("******************")
+            # print(value, " ", P_numeric_attribute[yes][j][value])
+            # print(value, " ", P_numeric_attribute[no][j][value])
+        # print("******************")
     return P_numeric_attribute
 
 
-def classify(cur, P_label, P_non_numeric_attribute, P_numeric_attribute):
+def classify(cur, P_label, P_non_numeric_attribute, P_numeric_attribute, range_len, end_point):
     yes = "\"yes\""
     no = "\"no\""
     P_yes = P_label[yes]
@@ -118,29 +118,29 @@ def classify(cur, P_label, P_non_numeric_attribute, P_numeric_attribute):
         P_yes *= P_non_numeric_attribute[yes][j][value]
         P_no *= P_non_numeric_attribute[no][j][value]
     for j in range(len(numeric_attributes)):
-        value = int(numeric_values[cur][j] / formalisation[j] / 0.05)
+        value = int(numeric_values[cur][j] / formalisation[j] / range_len)
         if value not in P_numeric_attribute[yes][j].keys() or value not in P_numeric_attribute[no][j].keys():
             continue
         P_yes *= P_numeric_attribute[yes][j][value]
         P_no *= P_numeric_attribute[no][j][value]
     # print(P_yes, " ", P_no)
-    if P_yes > P_no:
+    if P_yes > P_no * end_point:
         return yes
     else:
         return no
 
 
-def main():
+def naive_bayes(range_len, end_point):
     P_label = calculate_p_label(train_set)
     P_non_numeric_attribute = calculate_p_non_numeric_attribute(train_set)
-    P_numeric_attribute = calculate_p_numerical_attribute(train_set)
+    P_numeric_attribute = calculate_p_numerical_attribute(train_set, range_len)
     n = len(test_set)
     a = 0
     b = 0
     c = 0
     d = 0
     for cur in test_set:
-        res = classify(cur, P_label, P_non_numeric_attribute, P_numeric_attribute)
+        res = classify(cur, P_label, P_non_numeric_attribute, P_numeric_attribute, range_len, end_point)
         label = labels[cur]
         if label == "\"yes\"" and res == "\"yes\"":
             a += 1
@@ -151,14 +151,19 @@ def main():
         if label == "\"no\"" and res == "\"no\"":
             d += 1
         # print(res, " ", label)
-    print(len(train_set), " ", len(test_set))
     print(a, " ", b, " ", c, " ", d, " ", a + b + c + d)
+    print("Precision: ", float(a) / (a + c))
+    print("Recall: ", float(a) / (a + b))
     a = float(a) / n
     b = float(b) / n
     c = float(c) / n
     d = float(d) / n
-    print(a, " ", b, " ", c, " ", d, " ", a + b + c + d)
+    # print(a, " ", b, " ", c, " ", d, " ", a + b + c + d)
     print(a + d)
 
 
-main()
+for range_len in [0.5, 0.1, 0.05, 0.01]:
+    for end_point in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]:
+        print("range_len: ", range_len, "end_point: ", end_point)
+        naive_bayes(range_len, end_point)
+        print()

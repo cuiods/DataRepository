@@ -4,12 +4,21 @@ import copy
 
 
 attribute_path = "C:\\Users\\admin\\Desktop\\attribute"
-data_path = "C:\\Users\\admin\\Desktop\\bank-additional.csv"
+data_path = "C:\\Users\\admin\\Desktop\\bank-additional-full.csv"
 non_numeric_attributes = loadtxt(attribute_path, delimiter=';', dtype=str, usecols=(1, 2, 3, 4, 5, 6, 7, 8, 9, 14))
 numeric_attributes = loadtxt(attribute_path, delimiter=';', dtype=str, usecols=(0, 10, 11, 12, 13, 15, 16, 17, 18, 19))
 non_numeric_values = loadtxt(data_path, delimiter=';', dtype=str, usecols=(1, 2, 3, 4, 5, 6, 7, 8, 9, 14))
 numeric_values = loadtxt(data_path, delimiter=';', dtype=float, usecols=(0, 10, 11, 12, 13, 15, 16, 17, 18, 19))
 labels = loadtxt(data_path, delimiter=';', dtype=str, usecols=20)
+# train_set and test_set
+train_set = []
+test_set = []
+for i in range(0, len(labels)):
+    base = 0
+    if i % 10 == (base + 2) % 10 or i % 10 == (base + 5) % 10 or i % 10 == (base + 7) % 10:
+        test_set.append(i)
+    else:
+        train_set.append(i)
 
 
 def calculate_average_values(values):
@@ -115,7 +124,7 @@ def find_majority_label(set):
     return max_label
 
 
-def build_tree(set, remain_numeric_features, remain_non_numeric_features):
+def build_tree(set, remain_numeric_features, remain_non_numeric_features, end_point):
     # if no samples belong to this branch
     if len(set) == 0:
         return "NULL"
@@ -133,7 +142,7 @@ def build_tree(set, remain_numeric_features, remain_non_numeric_features):
     for cur in set:
         if labels[cur] == "\"yes\"":
             num_true += 1
-    if float(num_true) / len(set) > 0.31:
+    if float(num_true) / len(set) > end_point:
         return "\"yes\""
     # return the majority of samples' label in this subset if no extra features available
     if len(remain_numeric_features) == 0 and len(remain_non_numeric_features) == 0:
@@ -159,7 +168,7 @@ def build_tree(set, remain_numeric_features, remain_non_numeric_features):
         non_numeric_feature_copy.remove(best_feature_index)
     for key in subsets.keys():
         node_dictionary[best_feature_index][key] = \
-            build_tree(subsets[key], numeric_feature_copy, non_numeric_feature_copy)
+            build_tree(subsets[key], numeric_feature_copy, non_numeric_feature_copy, end_point)
     return node_dictionary
 
 
@@ -190,14 +199,7 @@ def classify(tree, test_data):
     return classify(next_branch, test_data)
 
 
-def main():
-
-    train_set = []
-    for i in range(0, len(labels) - 1000):
-        train_set.append(i)
-    test_set = []
-    for i in range(len(labels) - 1000, len(labels)):
-        test_set.append(i)
+def decision_tree(end_point):
     # print(average_numeric_values)
     remain_numeric_features = []
     for i in range(len(numeric_attributes)):
@@ -205,8 +207,8 @@ def main():
     remain_non_numeric_features = []
     for i in range(len(non_numeric_attributes)):
         remain_non_numeric_features.append(i)
-    tree = build_tree(train_set, remain_numeric_features, remain_non_numeric_features)
-    print(tree)
+    tree = build_tree(train_set, remain_numeric_features, remain_non_numeric_features, end_point)
+    # print(tree)
     n = len(test_set)
     a = 0
     b = 0
@@ -225,12 +227,17 @@ def main():
         if label == "\"no\"" and res == "\"no\"":
             d += 1
     print(a, " ", b, " ", c, " ", d, " ", a + b + c + d)
+    print("Precision: ", float(a) / (a + c))
+    print("Recall: ", float(a) / (a + b))
     a = float(a) / n
     b = float(b) / n
     c = float(c) / n
     d = float(d) / n
-    print(a, " ", b, " ", c, " ", d, " ", a + b + c + d)
+    # print(a, " ", b, " ", c, " ", d, " ", a + b + c + d)
     print(a + d)
 
 
-main()
+for end_point in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]:
+    print("end_point: ", end_point)
+    decision_tree(end_point)
+    print()
