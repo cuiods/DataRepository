@@ -1,0 +1,86 @@
+option = {
+    title: {
+        text: 'decision-tree',
+        subtext: 'dataware'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['Precision','Recall','Accuracy']
+    },
+    toolbox: {
+        show: true,
+        feature: {
+            dataZoom: {
+                yAxisIndex: 'none'
+            },
+            dataView: {readOnly: false},
+            magicType: {type: ['line', 'bar']},
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    xAxis:  {
+        type: 'category',
+        boundaryGap: false,
+        data: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+        name: '叶节点正例占比'
+    },
+    yAxis: {
+        type: 'value',
+        axisLabel: {
+            formatter: '{value} '
+        }
+    },
+    series: [
+        {
+            name:'Precision',
+            type:'line',
+            data:[0.11183944323055758,0.22456813819577734,0.2929133858267717, 0.3467000835421888,0.3733681462140992,0.36684782608695654,0.3696551724137931,0.3698060941828255,0.3698060941828255],
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'Recall',
+            type:'line',
+            data:[1.0,0.507959479015919, 0.4037626628075253, 0.30028943560057886,0.20694645441389292,0.19536903039073805,0.1939218523878437,0.19319826338639653,0.19319826338639653],
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'Accuracy',
+            type:'line',
+            data:[0.11183944323055758,0.7488063445820183,0.8243101076313021, 0.8584607914542365,0.8724609533058185,0.8722991017237194,0.8728655822610666,0.8729465080521162,0.8729465080521162],
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        }
+    ]
+};

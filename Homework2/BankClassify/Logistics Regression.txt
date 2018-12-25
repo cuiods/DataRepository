@@ -1,0 +1,86 @@
+option = {
+    title: {
+        text: 'Logistics Regression',
+        subtext: 'dataware'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['Precision','Recall','Accuracy']
+    },
+    toolbox: {
+        show: true,
+        feature: {
+            dataZoom: {
+                yAxisIndex: 'none'
+            },
+            dataView: {readOnly: false},
+            magicType: {type: ['line', 'bar']},
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    xAxis:  {
+        type: 'category',
+        boundaryGap: false,
+        data: [0.1, 0.05, 0.01, 0.005, 0.001, 0.0005],
+        name: '步长'
+    },
+    yAxis: {
+        type: 'value',
+        axisLabel: {
+            formatter: '{value} '
+        }
+    },
+    series: [
+        {
+            name:'Precision',
+            type:'line',
+            data:[0.5222088835534213, 0.25, 0.3235085227272727, 0.5190582959641256, 0.30255278915852507, 0.4],
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'Recall',
+            type:'line',
+            data:[0.3143063583815029, 0.000722543352601156, 0.6582369942196532, 0.3345375722543353, 0.6936416184971098, 0.001445086705202312],
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        },
+        {
+            name:'Accuracy',
+            type:'line',
+            data:[0.8914785142024764, 0.8883224083515416, 0.808044023630331, 0.8912357368293274, 0.7870842437484826, 0.8884033341425912],
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        }
+    ]
+};
